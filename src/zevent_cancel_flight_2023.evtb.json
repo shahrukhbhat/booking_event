@@ -1,0 +1,21 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Cancel flight event",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "producerNamespace": "zevent2023",
+  "producer": "P294AE75823E36925419589F0A8A5CE66",
+  "producerVersion": "0001",
+  "boName": "booking",
+  "boOperation": "Delete",
+  "producerType": "zevent2023.booking.Delete.v*",
+  "events": [
+    {
+      "eventVersion": "0001",
+      "entityName": "ZEVENT_R_BOOKINGTP_2023",
+      "entityEventName": "BOOKINGCANCELLED"
+    }
+  ]
+}

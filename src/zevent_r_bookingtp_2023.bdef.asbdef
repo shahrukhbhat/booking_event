@@ -1,0 +1,57 @@
+managed with additional save implementation in class ZEVENT_BP_BOOKINGTP_2023 unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZEVENT_R_BOOKINGTP_2023 alias Booking
+persistent table zbooking_2023
+draft table ZEVENT_BOOK2023
+etag master LastChangedAt
+lock master total etag LocalLastChangedAt
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   TravelID;
+
+  field ( readonly )
+   CreatedAt,
+   CreatedBy,
+   LocalLastChangedAt,
+   LastChangedAt,
+   LastChangedBy;
+
+  field ( readonly : update )
+   TravelID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  event BookingCancelled parameter ZEVENT_D_BOOKING_CANCEL_2023;
+
+  mapping for ZBOOKING_2023
+  {
+    TravelID = travel_id;
+    AgencyID = agency_id;
+    CustomerID = customer_id;
+    BeginDate = begin_date;
+    EndDate = end_date;
+    BookingFee = booking_fee;
+    TotalPrice = total_price;
+    CurrencyCode = currency_code;
+    Description = description;
+    OverallStatus = overall_status;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

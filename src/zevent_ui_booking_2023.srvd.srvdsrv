@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition forZEVENT_C_BOOKINGTP_2023'
+define service ZEVENT_UI_BOOKING_2023 {
+  expose ZEVENT_C_BOOKINGTP_2023 as Booking;
+}
